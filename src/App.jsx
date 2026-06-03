@@ -211,7 +211,7 @@ export default function App() {
           <svg className="deco-shape top-right-asterisk" viewBox="0 0 100 100"><g stroke="#1e1b4b" strokeWidth="12" strokeLinecap="round" opacity="0.12"><line x1="50" y1="10" x2="50" y2="90" /><line x1="10" y1="50" x2="90" y2="50" /></g></svg>
           <svg className="deco-shape bottom-left-asterisk" viewBox="0 0 100 100"><g stroke="#1e1b4b" strokeWidth="12" strokeLinecap="round" opacity="0.12"><line x1="22" y1="22" x2="78" y2="78" /><line x1="22" y1="78" x2="78" y2="22" /></g></svg>
           <svg className="deco-shape bottom-right-sparkle" viewBox="0 0 100 100"><path d="M60,30 Q60,60 90,60 Q60,60 60,90 Q60,60 30,60 Q60,60 60,30 Z" fill="#1e1b4b" opacity="0.15" /></svg>
-          <div className="splash-badge">Engineering & Venture Presentation</div>
+          <div className="splash-badge">STUDENT - INFORMATION TECHNOLOGY AT VIT, VELLORE</div>
           <h1 className="splash-title">Portfolio</h1>
         </div>
 
