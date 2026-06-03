@@ -1,0 +1,305 @@
+/* Import Playfair Display (Serif) and Montserrat (Sans-Serif) from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
+/* Universal Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Force the page frame background color */
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #e2e4f6 !important; /* Soft light gray-blue background frame */
+  color: #1e1b4b !important;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.portfolio-container {
+  min-height: 100vh;
+  width: 100%;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent !important; /* Keeps custom side margin blobs perfectly visible */
+}
+
+/* Fixed Background Wallpaper Decorations Container */
+.page-background-decor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-shape {
+  position: absolute;
+  width: 280px; 
+  height: 280px;
+  transition: transform 10s ease-in-out;
+}
+
+/* Precise positive margins pulling the asset shapes inside browser view boundaries */
+.top-left-blobs { top: 20px; left: 20px; width: 180px; height: 180px; }
+.top-right-organic { top: 10px; right: 10px; width: 340px; height: 340px; }
+.bottom-left-organic { bottom: 20px; left: 20px; width: 300px; height: 300px; }
+.bottom-right-blobs { bottom: 30px; right: 30px; width: 200px; }
+
+/* 4-Column Presentation Slide Grid layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 230px;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 5; /* Hovers text canvases above background watermarks safely */
+}
+
+/* Base Card Presentation Slide Configuration */
+.bento-card {
+  border-radius: 20px !important;
+  padding: 2.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 12px 30px rgba(30, 27, 75, 0.04) !important;
+  border: none !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(30, 27, 75, 0.09) !important;
+}
+
+/* --- Intentional Alternating Color Scheme Track --- */
+.splash-header-card { grid-column: span 4; background-color: #b4b6ea !important; }
+/* Update these specific selectors in your App.css to keep the checkerboard perfect */
+.hero-card           { background-color: #b4b6ea !important; } /* Lavender */
+.about-card          { background-color: #f7dcd0 !important; } /* Peach */
+.drone-card          { background-color: #b4b6ea !important; } /* Lavender (Projects) */
+.skills-card         { background-color: #f7dcd0 !important; } /* Peach (Switched for alternate) */
+.interests-card      { background-color: #b4b6ea !important; } /* Lavender */
+.achievements-card   { background-color: #f7dcd0 !important; } /* Peach */
+.contact-card        { background-color: #b4b6ea !important; } /* Lavender bottom wrap */
+/* Dynamic Width Spans For Restoring Clean Coordinates */
+.grid-col-4 { grid-column: span 4; }
+.grid-col-2 { grid-column: span 2; }
+.grid-col-1 { grid-column: span 1; }
+
+/* Top Splash Header Core Structure */
+.splash-header-card {
+  border-radius: 20px;
+  padding: 4.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(30, 27, 75, 0.04);
+  margin-bottom: 0.5rem;
+}
+
+/* Vector Overlay Accents inside Top Header Block */
+.splash-curve { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.deco-shape { position: absolute; width: 110px; height: 110px; pointer-events: none; z-index: 1; transition: transform 0.4s ease; }
+.splash-header-card:hover .deco-shape { transform: scale(1.08) rotate(4deg); }
+
+.top-left-sparkle    { top: 20px; left: 30px; }
+.top-right-asterisk  { top: -20px; right: -20px; width: 140px; height: 140px; }
+.bottom-left-asterisk{ bottom: -20px; left: -20px; width: 140px; height: 140px; }
+.bottom-right-sparkle{ bottom: 20px; right: 30px; }
+
+/* Typography Architecture */
+.splash-badge {
+  font-family: 'Montserrat', sans-serif;
+  color: #1e1b4b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.splash-title {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 6rem !important;
+  font-weight: 700;
+  color: #1e1b4b !important;
+  line-height: 1;
+  letter-spacing: -2px;
+  z-index: 2;
+}
+
+.bento-card h2 {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700;
+  color: #1e1b4b !important;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-card h2 {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-size: 3.8rem !important;
+}
+
+.bento-card p {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(30, 27, 75, 0.85) !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-footer {
+  font-family: 'Montserrat', sans-serif;
+  color: #1e1b4b !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+/* --- Redesigned Contrast Full-Screen Modal Interface --- */
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(11, 11, 18, 0.5); /* Semi-opaque dimming mask */
+  backdrop-filter: blur(16px);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.fullscreen-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Contrast Theme Pop-up Canvas Box */
+.overlay-content {
+  background-color: #1e1b4b !important; /* Premium deep dark navy background to create rich contrast */
+  color: #f3f4f6 !important; /* Off-white prose elements for crisp readability */
+  border-radius: 24px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 85vh;
+  padding: 4rem;
+  position: relative;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px rgba(11, 11, 18, 0.4);
+  transform: translateY(30px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullscreen-overlay.active .overlay-content {
+  transform: translateY(0);
+}
+
+/* Embedded Pop-up Vector Graphics Accents */
+.popup-decor {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+}
+.top-left-star { top: 15px; left: 20px; }
+.bottom-right-star { bottom: 15px; right: 20px; }
+
+/* Custom Formatting for Inner Content Layout Elements */
+.modal-inner-layout h1 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 3.5rem; color: #b4b6ea; margin-bottom: 0.5rem; }
+.modal-inner-layout h2 { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: #f7dcd0; margin-bottom: 0.5rem; }
+.modal-inner-layout h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #b4b6ea; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.modal-inner-layout h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: #ffffff; letter-spacing: 1px; }
+.modal-inner-layout h5 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; color: #b4b6ea; margin-bottom: 0.5rem; }
+.modal-inner-layout p { font-family: 'Montserrat', sans-serif; color: rgba(243, 244, 246, 0.8) !important; font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
+
+.modal-institution { font-size: 1.05rem !important; color: #f7dcd0 !important; font-weight: 500; }
+.modal-stat-pill { display: inline-block; background: rgba(180, 182, 234, 0.15); border: 1px solid rgba(180, 182, 234, 0.3); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; color: #b4b6ea; margin-top: 0.5rem; }
+.project-badge-tag { display: inline-block; background: rgba(247, 220, 208, 0.15); border: 1px solid rgba(247, 220, 208, 0.3); padding: 0.4rem 1rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; color: #f7dcd0; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+.prize-tag { background: rgba(250, 204, 21, 0.1) !important; border-color: rgba(250, 204, 21, 0.3) !important; color: #fde047 !important; }
+
+.decor-divider { width: 60px; height: 3px; background: #b4b6ea; margin: 1.5rem 0; border-radius: 2px; }
+.margin-center { margin: 1.5rem auto !important; }
+
+/* Structural Content Lists */
+.experience-block { margin-bottom: 2rem; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 12px; }
+.exp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; }
+.exp-header span { font-size: 0.85rem; color: rgba(243, 244, 246, 0.5); font-weight: 500; }
+
+.badge-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.5rem; margin-bottom: 1.5rem; }
+.badge { background: rgba(180, 182, 234, 0.1); border: 1px solid rgba(180, 182, 234, 0.2); padding: 0.5rem 1rem; border-radius: 30px; font-size: 0.9rem; font-weight: 500; color: #b4b6ea; }
+.text-highlight { background: rgba(247, 220, 208, 0.15) !important; border-color: rgba(247, 220, 208, 0.3) !important; color: #f7dcd0 !important; }
+.variant-badge .badge { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); color: #ffffff; }
+
+.bullet-list { padding-left: 1.5rem; margin: 1rem 0; }
+.bullet-list li { color: rgba(243, 244, 246, 0.85); margin-bottom: 0.75rem; line-height: 1.6; font-size: 0.95rem; }
+.bullet-list strong { color: #f7dcd0; font-weight: 600; }
+
+.code-structure-box { background: rgba(11, 11, 18, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 1.5rem; font-family: monospace; font-size: 0.9rem; color: #cbd5e1; line-height: 1.8; margin: 1rem 0 1.5rem 0; }
+
+/* Interactive Buttons */
+.modal-links { margin-top: 2rem; }
+.action-link-btn { display: inline-block; padding: 0.8rem 1.8rem; background: #b4b6ea; color: #1e1b4b; text-decoration: none; font-weight: 600; font-size: 0.95rem; border-radius: 30px; transition: background 0.2s ease, transform 0.2s ease; }
+.action-link-btn:hover { background: #9da0df; transform: translateY(-2px); }
+
+.contact-grid-box { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; background: rgba(255, 255, 255, 0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); }
+.contact-line { font-size: 0.95rem; color: rgba(243, 244, 246, 0.8); }
+.contact-line strong { color: #b4b6ea; }
+.text-center { text-align: center; }
+
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  z-index: 10;
+}
+
+.close-btn:hover { background: #ef4444; color: #ffffff; border-color: #ef4444; }
+
+/* Responsive Grid Adaptation */
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(200px, auto); }
+  .grid-col-4, .grid-col-2, .grid-col-1 { grid-column: span 2 !important; }
+  .splash-title { font-size: 4rem !important; }
+  .hero-card h2 { font-size: 2.8rem !important; }
+  .overlay-content { padding: 2.5rem 1.5rem; }
+  .contact-grid-box { grid-template-columns: 1fr; }
+}
