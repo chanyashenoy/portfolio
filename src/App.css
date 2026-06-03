@@ -28,6 +28,7 @@ html, body {
 }
 
 /* Fixed Background Wallpaper Decorations Container */
+/* --- Global Wallpaper Layer: Fixed Margin Track Assets --- */
 .page-background-decor {
   position: fixed;
   top: 0;
@@ -35,22 +36,45 @@ html, body {
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  pointer-events: none;
+  pointer-events: none; /* Let clicks fall cleanly on bento grid slides */
   overflow: hidden;
 }
 
 .bg-shape {
   position: absolute;
-  width: 280px; 
-  height: 280px;
-  transition: transform 10s ease-in-out;
+  transition: transform 0.5s ease-out;
 }
 
-/* Precise positive margins pulling the asset shapes inside browser view boundaries */
-.top-left-blobs { top: 20px; left: 20px; width: 180px; height: 180px; }
-.top-right-organic { top: 10px; right: 10px; width: 340px; height: 340px; }
-.bottom-left-organic { bottom: 20px; left: 20px; width: 300px; height: 300px; }
-.bottom-right-blobs { bottom: 30px; right: 30px; width: 200px; }
+/* Precise positioning to reveal full organic boundaries along margins */
+.top-left-blobs {
+  top: 20px;
+  left: 20px;
+  width: 220px;
+  height: 220px;
+}
+
+.top-right-organic {
+  top: -40px;
+  right: -40px;
+  width: 480px;
+  height: 480px;
+}
+
+.bottom-left-organic {
+  bottom: -40px;
+  left: -40px;
+  width: 460px;
+  height: 460px;
+}
+
+.bottom-right-blobs {
+  bottom: 20px;
+  right: 20px;
+  width: 240px;
+  height: 240px;
+}
+
+/* Remove or comment out any old .card-accent rules to ensure clean cards! */
 
 /* 4-Column Presentation Slide Grid layout */
 .bento-grid {
@@ -84,14 +108,15 @@ html, body {
 
 /* --- Intentional Alternating Color Scheme Track --- */
 .splash-header-card { grid-column: span 4; background-color: #b4b6ea !important; }
-/* Update these specific selectors in your App.css to keep the checkerboard perfect */
 .hero-card           { background-color: #b4b6ea !important; } /* Lavender */
 .about-card          { background-color: #f7dcd0 !important; } /* Peach */
-.drone-card          { background-color: #b4b6ea !important; } /* Lavender (Projects) */
-.skills-card         { background-color: #f7dcd0 !important; } /* Peach (Switched for alternate) */
-.interests-card      { background-color: #b4b6ea !important; } /* Lavender */
-.achievements-card   { background-color: #f7dcd0 !important; } /* Peach */
-.contact-card        { background-color: #b4b6ea !important; } /* Lavender bottom wrap */
+.drone-card          { background-color: #b4b6ea !important; } /* Lavender */
+.svastha-card        { background-color: #f7dcd0 !important; } /* Peach */
+.skills-card         { background-color: #b4b6ea !important; } /* Lavender */
+.interests-card      { background-color: #f7dcd0 !important; } /* Peach */
+.achievements-card   { background-color: #b4b6ea !important; } /* Lavender */
+.contact-card        { background-color: #f7dcd0 !important; } /* Peach Wrap */
+
 /* Dynamic Width Spans For Restoring Clean Coordinates */
 .grid-col-4 { grid-column: span 4; }
 .grid-col-2 { grid-column: span 2; }
@@ -302,4 +327,55 @@ html, body {
   .hero-card h2 { font-size: 2.8rem !important; }
   .overlay-content { padding: 2.5rem 1.5rem; }
   .contact-grid-box { grid-template-columns: 1fr; }
+}
+/* --- Final Aesthetic Polish: Decorative Vector Graphics --- */
+
+/* Small sparkle/asterisk accents inside individual bento cards */
+.card-accent {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  pointer-events: none; /* Allows clicks to pass through to the card */
+  z-index: 1;
+}
+
+/* Enhanced Floating Graphics for the Navy Pop-up Interface */
+.popup-decor {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  z-index: 0; /* Sits behind the modal text */
+}
+
+/* Positioning for Pop-up Stars to mimic reference images */
+.top-left-star { 
+  top: -20px; 
+  left: -20px; 
+}
+
+.bottom-right-star { 
+  bottom: -30px; 
+  right: -30px; 
+}
+
+/* Modal text container depth fix */
+.modal-inner-layout {
+  position: relative;
+  z-index: 2; /* Ensures text is always above the floating background stars */
+}
+
+/* Custom Scrollbar for the Navy Pop-up (Chrome/Safari) */
+.overlay-content::-webkit-scrollbar {
+  width: 6px;
+}
+.overlay-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.overlay-content::-webkit-scrollbar-thumb {
+  background: rgba(180, 182, 234, 0.3);
+  border-radius: 10px;
 }
